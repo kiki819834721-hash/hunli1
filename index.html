@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>当老板的婚礼变成品牌事件｜连锁茶饮「创始人婚礼营销」研究报告</title>
+<script>document.documentElement.className = 'js';</script>
+<style>
+  :root{
+    --ink:#0f1115;
+    --ink-2:#3b424d;
+    --ink-3:#6d7583;
+    --line:#e4e7ec;
+    --line-2:#eff1f5;
+    --bg:#fafafb;
+    --card:#ffffff;
+    --accent:#a3122c;
+    --accent-2:#d94a5f;
+    --accent-soft:#fdf1f3;
+    --jade:#186b57;
+    --jade-soft:#eff7f4;
+    --amber:#8a5a00;
+    --amber-soft:#fdf6e8;
+    --radius:16px;
+    --ease:cubic-bezier(.22,1,.36,1);
+    --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{
+    margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    font-size:16px;line-height:1.85;overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:#f6d7dc;color:#5c0a19}
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px 110px;position:relative;z-index:1}
+
+  /* ================= top progress ================= */
+  #bar{
+    position:fixed;top:0;left:0;height:3px;width:0;z-index:60;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2) 55%,#e8b04b);
+    box-shadow:0 0 12px rgba(163,18,44,.35);
+    transition:width .08s linear;
+  }
+
+  /* ================= cover ================= */
+  .cover{
+    position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;
+    background:#0d0f13;color:#f4f2ee;overflow:hidden;padding:90px 28px;
+  }
+  .cover-glow{
+    position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(58% 50% at 78% 12%,rgba(163,18,44,.55),transparent 62%),
+      radial-gradient(46% 42% at 12% 84%,rgba(24,107,87,.42),transparent 64%),
+      radial-gradient(38% 34% at 62% 92%,rgba(232,176,75,.28),transparent 66%);
+    animation:glowShift 16s ease-in-out infinite alternate;
+  }
+  @keyframes glowShift{from{transform:scale(1) translate3d(0,0,0)}to{transform:scale(1.12) translate3d(-2%,2%,0)}}
+  .cover-grid{
+    position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);
+    background-size:66px 66px;
+    -webkit-mask-image:radial-gradient(circle at 50% 42%,#000 12%,transparent 74%);
+    mask-image:radial-gradient(circle at 50% 42%,#000 12%,transparent 74%);
+  }
+  .cover-inner{position:relative;z-index:2;max-width:860px;width:100%}
+  .cover .eyebrow{
+    display:flex;align-items:center;gap:12px;font-size:11.5px;letter-spacing:.3em;
+    color:#e8b04b;font-weight:700;margin-bottom:30px;
+  }
+  .cover .eyebrow::before{content:"";width:34px;height:1px;background:#e8b04b}
+  .cover h1{
+    font-size:clamp(35px,6.2vw,64px);line-height:1.18;letter-spacing:-.035em;
+    margin:0 0 26px;font-weight:800;color:#fff;
+  }
+  .cover h1 .thin{font-weight:300;color:#c9cdd5;display:block;font-size:.55em;letter-spacing:.01em;margin-top:14px}
+  .cover .rule{height:1px;background:linear-gradient(90deg,#e8b04b,rgba(255,255,255,.16) 45%,transparent);margin:0 0 26px}
+  .cover .sub{font-size:15.5px;line-height:1.95;color:#a8aeb9;max-width:36em;margin:0 0 40px}
+  .cover .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:44px}
+  .cover .fact{border-left:1px solid rgba(255,255,255,.14);padding-left:16px}
+  .cover .fact .n{font-family:var(--mono);font-size:21px;font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1.2}
+  .cover .fact .l{font-size:11.5px;color:#8b93a1;margin-top:6px;line-height:1.5}
+  .cover .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;font-size:12px;color:#7f8794}
+  .cover .foot b{color:#d6dae1;font-weight:600;margin-right:8px}
+  .cover .seal{
+    width:52px;height:52px;border-radius:50%;border:1px solid rgba(232,176,75,.55);
+    display:flex;align-items:center;justify-content:center;font-size:11px;line-height:1.2;
+    color:#e8b04b;text-align:center;letter-spacing:.08em;
+  }
+  .js .cover .anim{opacity:0;animation:coverUp 1s var(--ease) both}
+  .js .cover .a1{animation-delay:.1s}
+  .js .cover .a2{animation-delay:.22s}
+  .js .cover .a3{animation-delay:.34s}
+  .js .cover .a4{animation-delay:.46s}
+  .js .cover .a5{animation-delay:.58s}
+  .js .cover .a6{animation-delay:.7s}
+  @keyframes coverUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+  /* ================= hero ================= */
+  header.hero{position:relative;padding:88px 0 56px;border-bottom:1px solid var(--line);overflow:hidden}
+  .blob{position:absolute;border-radius:50%;filter:blur(48px);opacity:.55;pointer-events:none;z-index:0}
+  .blob.b1{width:420px;height:420px;top:-160px;right:-120px;background:radial-gradient(circle,#f7c9d2,transparent 68%);animation:float1 22s ease-in-out infinite}
+  .blob.b2{width:360px;height:360px;top:60px;left:-160px;background:radial-gradient(circle,#cfe6de,transparent 68%);animation:float2 26s ease-in-out infinite}
+  .blob.b3{width:300px;height:300px;top:220px;right:18%;background:radial-gradient(circle,#f6e2bd,transparent 70%);animation:float1 30s ease-in-out infinite reverse}
+  @keyframes float1{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-26px,26px,0) scale(1.1)}}
+  @keyframes float2{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(30px,-18px,0) scale(1.08)}}
+  header.hero>*{position:relative;z-index:1}
+
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12px;letter-spacing:.16em;font-weight:700;color:var(--accent);
+    background:#fff;border:1px solid #f3d9de;padding:6px 14px;border-radius:40px;
+    margin-bottom:24px;box-shadow:0 2px 12px rgba(163,18,44,.06);
+  }
+  .kicker .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2.2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.75)}}
+
+  h1{
+    font-size:clamp(30px,4.6vw,46px);line-height:1.28;margin:0 0 22px;
+    letter-spacing:-.025em;font-weight:800;
+  }
+  h1 .grad{
+    background:linear-gradient(96deg,var(--accent) 0%,#c2354c 42%,#7a2d5e 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .lede{font-size:17px;line-height:1.92;color:var(--ink-2);margin:0 0 28px;max-width:44em}
+  .meta{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13px;color:var(--ink-3)}
+  .meta b{color:var(--ink-2);font-weight:650;margin-right:4px}
+
+  .scrollcue{margin-top:40px;display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--ink-3);letter-spacing:.1em}
+  .scrollcue .mouse{width:20px;height:32px;border:1.5px solid #cfd4db;border-radius:12px;position:relative}
+  .scrollcue .mouse::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:var(--accent);animation:wheel 1.8s ease-in-out infinite}
+  @keyframes wheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}70%{opacity:1}100%{opacity:0;transform:translateY(10px)}}
+
+  /* ================= toc ================= */
+  nav.toc{
+    margin:36px 0 0;padding:24px 26px;background:rgba(255,255,255,.72);
+    backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:var(--radius);
+  }
+  nav.toc p{margin:0 0 14px;font-size:11.5px;letter-spacing:.14em;color:var(--ink-3);font-weight:700}
+  nav.toc ol{margin:0;padding-left:20px;columns:2;column-gap:36px;font-size:14.5px}
+  nav.toc li{margin:0 0 8px;break-inside:avoid;color:var(--ink-2)}
+  nav.toc a{color:var(--ink-2);text-decoration:none;position:relative;transition:color .25s}
+  nav.toc a::after{
+    content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--accent);transition:width .3s var(--ease);
+  }
+  nav.toc a:hover{color:var(--accent)}
+  nav.toc a:hover::after{width:100%}
+
+  /* ================= sections ================= */
+  section{padding-top:64px}
+  h2{
+    font-size:clamp(22px,2.9vw,28px);line-height:1.4;margin:0 0 10px;
+    letter-spacing:-.015em;font-weight:780;
+  }
+  h2 .num{
+    font-family:var(--mono);font-size:12px;color:var(--accent);
+    display:flex;align-items:center;gap:10px;letter-spacing:.14em;margin-bottom:10px;font-weight:700;
+  }
+  h2 .num::after{content:"";height:1px;flex:0 0 42px;background:linear-gradient(90deg,var(--accent),transparent);transform-origin:left;animation:lineGrow 1s var(--ease) both}
+  @keyframes lineGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  h3{font-size:18px;margin:36px 0 10px;font-weight:720;letter-spacing:-.01em}
+  h4{font-size:14.5px;margin:24px 0 8px;font-weight:700;color:var(--ink-2)}
+  p{margin:0 0 16px}
+  a{color:var(--accent)}
+  strong{font-weight:700}
+  em{font-style:normal;background:linear-gradient(transparent 60%,#f8dfe3 0);padding:0 2px}
+  .sub{color:var(--ink-3);font-size:14.5px;margin:0 0 24px}
+
+  /* ================= cards ================= */
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 28px;margin:24px 0;
+    transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -22px rgba(15,17,21,.22);border-color:#dfe3e9}
+
+  .callout{
+    position:relative;border-radius:0 12px 12px 0;padding:18px 22px 18px 24px;margin:24px 0;font-size:15px;color:var(--ink-2);
+    background:var(--accent-soft);border-left:3px solid var(--accent);
+    transition:transform .45s var(--ease),box-shadow .45s var(--ease);
+  }
+  .callout:hover{transform:translateX(3px);box-shadow:0 10px 26px -18px rgba(163,18,44,.5)}
+  .callout.jade{border-color:var(--jade);background:var(--jade-soft)}
+  .callout.jade:hover{box-shadow:0 10px 26px -18px rgba(24,107,87,.5)}
+  .callout.amber{border-color:#d9a441;background:var(--amber-soft)}
+  .callout b{color:var(--ink)}
+  .callout p:last-child{margin-bottom:0}
+
+  /* ================= stats ================= */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin:26px 0}
+  .stat{background:var(--card);padding:20px 20px 18px;position:relative;transition:background .4s}
+  .stat:hover{background:#fcfcfd}
+  .stat::before{
+    content:"";position:absolute;left:0;top:0;width:100%;height:2px;
+    background:linear-gradient(90deg,var(--accent),#e8b04b);transform:scaleX(0);transform-origin:left;
+    transition:transform .6s var(--ease);
+  }
+  .stat:hover::before{transform:scaleX(1)}
+  .stat .v{font-family:var(--mono);font-size:25px;font-weight:700;letter-spacing:-.03em;line-height:1.15;font-variant-numeric:tabular-nums}
+  .stat .v small{font-size:13px;font-weight:600;color:var(--ink-3);margin-left:2px;letter-spacing:0}
+  .stat .k{font-size:12.5px;color:var(--ink-3);margin-top:8px;line-height:1.55}
+  .stat .v.up{color:var(--jade)}
+  .stat .v.down{color:var(--accent)}
+
+  /* ================= table ================= */
+  .tablewrap{overflow-x:auto;margin:24px 0;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:580px}
+  th,td{text-align:left;padding:13px 17px;border-bottom:1px solid var(--line-2);vertical-align:top}
+  thead th{background:#f7f8fa;font-size:12px;letter-spacing:.08em;color:var(--ink-3);font-weight:700;white-space:nowrap}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr{transition:background .3s}
+  tbody tr:hover{background:#fcfafb}
+  td:first-child{font-weight:650;color:var(--ink)}
+  .js .tablewrap tbody tr{animation:rowIn .55s var(--ease) both}
+  .js .tablewrap tbody tr:nth-child(1){animation-delay:.05s}
+  .js .tablewrap tbody tr:nth-child(2){animation-delay:.11s}
+  .js .tablewrap tbody tr:nth-child(3){animation-delay:.17s}
+  .js .tablewrap tbody tr:nth-child(4){animation-delay:.23s}
+  .js .tablewrap tbody tr:nth-child(5){animation-delay:.29s}
+  .js .tablewrap tbody tr:nth-child(6){animation-delay:.35s}
+  .js .tablewrap tbody tr:nth-child(7){animation-delay:.41s}
+  .js .tablewrap tbody tr:nth-child(8){animation-delay:.47s}
+  @keyframes rowIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  .tag{
+    display:inline-block;font-size:11.5px;padding:2px 9px;border-radius:20px;
+    background:var(--accent-soft);color:var(--accent);font-weight:650;vertical-align:1px;white-space:nowrap;
+  }
+  .tag.jade{background:var(--jade-soft);color:var(--jade)}
+  .tag.gray{background:#f1f2f5;color:var(--ink-3)}
+
+  /* ================= timeline ================= */
+  ol.timeline{list-style:none;margin:30px 0;padding:0 0 0 24px;position:relative}
+  ol.timeline::before{
+    content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(180deg,var(--accent),#e8b04b 70%,transparent);
+    transform-origin:top;
+  }
+  .js ol.timeline::before{animation:drawLine 1.7s var(--ease) .2s both}
+  @keyframes drawLine{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+  @keyframes drawLine{to{transform:scaleY(1)}}
+  ol.timeline li{position:relative;padding:0 0 24px 24px}
+  .js ol.timeline li{animation:tlIn .7s var(--ease) both}
+  @keyframes tlIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .js ol.timeline li:nth-child(1){animation-delay:.15s}
+  .js ol.timeline li:nth-child(2){animation-delay:.25s}
+  .js ol.timeline li:nth-child(3){animation-delay:.35s}
+  .js ol.timeline li:nth-child(4){animation-delay:.45s}
+  .js ol.timeline li:nth-child(5){animation-delay:.55s}
+  .js ol.timeline li:nth-child(6){animation-delay:.65s}
+  .js ol.timeline li:nth-child(7){animation-delay:.75s}
+  .js ol.timeline li:nth-child(8){animation-delay:.85s}
+  .js ol.timeline li:nth-child(9){animation-delay:.95s}
+  .js ol.timeline li:nth-child(10){animation-delay:1.05s}
+  .js ol.timeline li:nth-child(11){animation-delay:1.15s}
+  @keyframes tlIn{to{opacity:1;transform:none}}
+  ol.timeline li::after{
+    content:"";position:absolute;left:-30px;top:11px;width:11px;height:11px;
+    border-radius:50%;background:#fff;border:2px solid var(--line);box-sizing:border-box;transition:all .4s;
+  }
+  ol.timeline li.key::after{
+    background:var(--accent);border-color:var(--accent);
+    box-shadow:0 0 0 0 rgba(163,18,44,.28);animation:ring 2.6s ease-out infinite;
+  }
+  @keyframes ring{0%{box-shadow:0 0 0 0 rgba(163,18,44,.28)}70%{box-shadow:0 0 0 12px rgba(163,18,44,0)}100%{box-shadow:0 0 0 0 rgba(163,18,44,0)}}
+  ol.timeline li:hover::after{border-color:var(--accent)}
+  ol.timeline .t{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.05em;font-weight:700}
+  ol.timeline .h{font-weight:720;margin:3px 0 4px;transition:color .3s}
+  ol.timeline li:hover .h{color:var(--accent)}
+  ol.timeline .d{font-size:14.5px;color:var(--ink-2);line-height:1.78}
+
+  /* ================= bars ================= */
+  .bars{margin:26px 0;padding:24px 26px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius)}
+  .bars h4{margin:0 0 20px;font-size:12px;letter-spacing:.08em;color:var(--ink-3);font-weight:700}
+  .bar{margin-bottom:18px;font-size:14px}
+  .bar:last-child{margin-bottom:0}
+  .bar .lbl{display:flex;justify-content:space-between;gap:14px;margin-bottom:7px;color:var(--ink-2)}
+  .bar .lbl span:last-child{font-family:var(--mono);font-weight:700;color:var(--ink);white-space:nowrap}
+  .bar .track{height:9px;background:#f0f1f4;border-radius:6px;overflow:hidden}
+  .bar .fill{
+    height:100%;width:var(--w);border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    transition:width 1.25s var(--ease);
+  }
+  .js .bar .fill{animation:growBar 1.2s var(--ease) both}
+  @keyframes growBar{from{width:0}to{width:var(--w)}}
+  .bar:nth-child(2) .fill{transition-delay:.12s}
+  .bar:nth-child(3) .fill{transition-delay:.24s}
+  .bar:nth-child(4) .fill{transition-delay:.36s}
+  .bar .fill.j{background:linear-gradient(90deg,var(--jade),#3fa385)}
+
+  /* ================= lists ================= */
+  ul.clean{list-style:none;padding:0;margin:20px 0}
+  ul.clean>li{position:relative;padding-left:24px;margin-bottom:13px;font-size:15px;line-height:1.8;color:var(--ink-2)}
+  ul.clean>li::before{
+    content:"";position:absolute;left:3px;top:11px;width:7px;height:7px;border-radius:2px;
+    background:var(--accent);opacity:.55;transition:transform .35s var(--ease),opacity .35s;
+  }
+  ul.clean>li:hover::before{transform:rotate(45deg) scale(1.15);opacity:1}
+  ul.clean>li b{color:var(--ink)}
+
+  ol.steps{counter-reset:s;list-style:none;padding:0;margin:22px 0}
+  ol.steps>li{counter-increment:s;position:relative;padding:0 0 20px 46px;font-size:15px;line-height:1.8;color:var(--ink-2)}
+  ol.steps>li::before{
+    content:counter(s,decimal-leading-zero);position:absolute;left:0;top:1px;
+    font-family:var(--mono);font-size:12px;font-weight:700;color:var(--accent);
+    width:28px;height:28px;border:1px solid #ecc9d0;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;background:#fff;
+    transition:all .4s var(--ease);
+  }
+  ol.steps>li:hover::before{background:var(--accent);border-color:var(--accent);color:#fff;transform:scale(1.08)}
+  ol.steps>li b{color:var(--ink)}
+
+  blockquote{
+    margin:26px 0;padding:0 0 0 24px;border-left:3px solid var(--line);
+    color:var(--ink-2);font-size:16px;transition:border-color .4s;
+  }
+  blockquote:hover{border-color:var(--accent)}
+  blockquote p{margin:0 0 8px}
+  blockquote cite{font-size:13px;color:var(--ink-3);font-style:normal}
+
+  /* ================= sources ================= */
+  .src{font-size:13.5px;color:var(--ink-3);line-height:1.95;padding-left:20px}
+  .src li{margin-bottom:6px;transition:color .3s}
+  .src li:hover{color:var(--ink-2)}
+  .src a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--line);transition:color .3s,border-color .3s}
+  .src a:hover{color:var(--accent);border-color:var(--accent)}
+  footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3)}
+
+  /* ================= reveal ================= */
+  .js .reveal{animation:fadeUp .9s var(--ease) both}
+  .js .reveal.d1{animation-delay:.1s}
+  .js .reveal.d2{animation-delay:.2s}
+  .js .reveal.d3{animation-delay:.3s}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+  /* 兜底：若动画未执行（部分预览环境会暂停动画），3 秒后强制全部可见 */
+  .settled .reveal,.settled .tablewrap tbody tr,.settled ol.timeline li{opacity:1!important;transform:none!important;animation:none!important}
+  .settled ol.timeline::before{animation:none!important;transform:scaleY(1)!important}
+  .settled .bar .fill{animation:none!important;width:var(--w)!important}
+
+  @media (max-width:600px){
+    nav.toc ol{columns:1}
+    .cover{padding:70px 22px 56px;min-height:auto}
+    .cover .facts{grid-template-columns:1fr;gap:14px}
+    .cover .fact{border-left-width:1px}
+    .wrap{padding:0 18px 72px}
+    header.hero{padding:60px 0 40px}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .blob{display:none}
+    table{font-size:13.5px;min-width:520px}
+    th,td{padding:11px 13px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .js .reveal,.reveal{opacity:1!important;transform:none!important}
+    .bar .fill{width:var(--w)!important}
+    ol.timeline::before{transform:scaleY(1)}
+    ol.timeline li{opacity:1;transform:none}
+  }
+  @page{size:A4;margin:0}
+  @media print{
+    #bar,.blob,.scrollcue{display:none}
+    .cover{page-break-after:always;min-height:0;height:297mm;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .cover-inner{padding:0 46px}
+    .cover .anim{opacity:1!important;animation:none!important}
+    body{background:#fff;font-size:11pt}
+    .wrap{max-width:none;padding:0 17mm}
+    header.hero{padding:16mm 0 8mm}
+    section{padding-top:9mm}
+    h2,h3{page-break-after:avoid}
+    .card,.tablewrap,.callout,.bars,.stats{page-break-inside:avoid}
+    .reveal{opacity:1!important;transform:none!important}
+    .js ol.timeline li{opacity:1!important;transform:none!important}
+    ol.timeline::before{transform:scaleY(1)!important}
+    .bar .fill{width:var(--w)!important}
+    .tablewrap tbody tr{animation:none!important;opacity:1!important}
+    th:first-child,td:first-child{white-space:nowrap}
+  }
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<section class="cover">
+  <div class="cover-glow"></div>
+  <div class="cover-grid"></div>
+  <div class="cover-inner">
+    <div class="eyebrow anim a1">RESEARCH NOTE · 品牌营销研究</div>
+    <h1 class="anim a2">当老板的婚礼<br>变成品牌事件<span class="thin">连锁茶饮「创始人婚礼营销」深度拆解</span></h1>
+    <div class="rule anim a3"></div>
+    <p class="sub anim a3">一个完整样本，三层传播节点，一条从「婚礼现场」长成「团营产品线」的路径。附行业横向对比、可复用方法与风险清单。</p>
+    <div class="facts anim a4">
+      <div class="fact"><div class="n">2025.12.15</div><div class="l">事件日期 · 江苏常州</div></div>
+      <div class="fact"><div class="n">7000+ 门店</div><div class="l">同步收到创始人喜糖</div></div>
+      <div class="fact"><div class="n">600 亿+</div><div class="l">两家合计市值</div></div>
+    </div>
+    <div class="foot anim a5">
+      <div><b>案例主体</b>霸王茶姬 × 天合光能　　<b>报告日期</b>2026.11.09　　<b>信源</b>20+ 家媒体</div>
+      <div class="seal">研报<br>NO.01</div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+
+  <div class="kicker reveal"><span class="dot"></span>摘要 · ABSTRACT</div>
+  <p class="lede reveal d2">连锁茶饮行业里，「老板/高层结婚」被品牌系统性转成营销动作的案例极其稀缺——真正称得上完整的只有一例：霸王茶姬创始人张俊杰与天合光能联席董事长高海纯的婚礼。本报告拆解这场婚礼的四层动作、清晰的时间线与承接逻辑，横向对比喜茶、茶百道、茶颜悦色、奈雪等品牌的婚庆打法，并给出可复用的方法论与风险清单。</p>
+  <div class="meta reveal d2">
+    <span><b>案例主体</b>霸王茶姬 × 天合光能</span>
+    <span><b>事件时间</b>2025-12-15</span>
+    <span><b>信源</b>20+ 家媒体报道</span>
+    <span><b>更新</b>2026-11-09</span>
+  </div>
+  <div class="scrollcue reveal d3"><span class="mouse"></span>向下滚动 11 节</div>
+
+  <nav class="toc reveal d3">
+    <p>目录</p>
+    <ol>
+      <li><a href="#s1">结论先行</a></li>
+      <li><a href="#s2">事件档案</a></li>
+      <li><a href="#s3">四层品牌动作</a></li>
+      <li><a href="#s4">完整时间线</a></li>
+      <li><a href="#s5">为什么有效</a></li>
+      <li><a href="#s6">横向对比</a></li>
+      <li><a href="#s7">容易误传的点</a></li>
+      <li><a href="#s8">行业底层数据</a></li>
+      <li><a href="#s9">可复用方法论</a></li>
+      <li><a href="#s10">风险与争议</a></li>
+      <li><a href="#s11">信源清单</a></li>
+    </ol>
+  </nav>
+</header>
+
+<!-- ============ 1 ============ -->
+<section id="s1">
+  <h2><span class="num">01</span>结论先行</h2>
+  <p class="sub">如果只看三句话：</p>
+
+  <div class="callout reveal">
+    <p><b>第一，这是一个「先有承接能力、后有传播事件」的案例，不是一次公关灵感。</b>霸王茶姬在婚礼前一年多就在跑团餐业务和区域喜宴套餐，婚礼当天只是把已经建好的管道接到了自己身上。</p>
+  </div>
+  <div class="callout reveal d1">
+    <p><b>第二，它的高明之处不在于「婚礼上出现自家产品」，而在于把三层人变成了传播节点：</b>现场宾客（拍照）、7000 家门店员工（晒喜糖）、门店周边的普通消费者（到店领喜糖）。前两层没花什么钱，第三层把私事变成了公共事件。</p>
+  </div>
+  <div class="callout jade reveal d2">
+    <p><b>第三，行业里没有第二个「老板结婚带品牌活动」的案例。</b>喜茶、茶百道、茶颜悦色们的婚庆布局很完整，但都是「蹭用户婚礼」；奈雪的茶的夫妻创业是品牌叙事素材，不是婚礼事件营销。这个结论对做竞品对照很重要，别把两件事混为一谈。</p>
+  </div>
+
+  <div class="stats reveal">
+    <div class="stat"><div class="v"><span class="count" data-to="7000">7000</span><small>+</small></div><div class="k">全国门店收到创始人喜糖礼盒</div></div>
+    <div class="stat"><div class="v"><span class="count" data-to="150">150</span><small>万杯</small></div><div class="k">2024 年 1–9 月群体场景出货量</div></div>
+    <div class="stat"><div class="v up"><span class="count" data-prefix="+" data-to="300">+300</span><small>%</small></div><div class="k">2024 国庆团体订单同比</div></div>
+    <div class="stat"><div class="v"><span class="count" data-to="600">600</span><small>亿+</small></div><div class="k">两家人合计市值（人民币）</div></div>
+  </div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section id="s2">
+  <h2><span class="num">02</span>事件档案</h2>
+  <p class="sub">先把人和事钉死，后面所有判断都建立在这几个事实上。</p>
+
+  <h3 class="reveal">新郎：张俊杰</h3>
+  <p class="reveal">1993 年生于云南昆明。17 岁在昆明一家台湾品牌奶茶店做店员，一路做到店助、店长、区域督导、区域负责人；此后跨界进入人工智能/机器人行业，负责亚太区市场渠道开发；2017 年回到茶饮赛道，在昆明创立霸王茶姬，用「东方茶 + 原叶鲜奶茶」的定位绕开水果茶混战，走大单品路线。</p>
+  <p class="reveal">2025 年 4 月 17 日，霸王茶姬在纳斯达克上市，成为首个登陆美股的中国新茶饮品牌，首日市值突破 540 亿元人民币。2025 年 10 月 28 日《胡润百富榜》上，他以 135 亿元财富首次上榜，被媒体称为当年最年轻的「黑马」。此外，他从 2024 年 8 月起担任海底捞独立非执行董事。</p>
+
+  <h3 class="reveal">新娘：高海纯</h3>
+  <p class="reveal">同样出生于 1993 年，毕业于美国布朗大学。父亲高纪凡是天合光能（创立于 1997 年，A 股市值超 400 亿元）创始人、董事长兼总经理，2024 年胡润百富榜上家族身家 145 亿元。她 2017 年入职天合光能，历任投资者关系高级经理、战略投资部副总经理、天合星元执行董事、天合富家董事长、天合光能解决方案事业群总裁；2024 年 6 月起任天合光能董事，2025 年 1 月起任联席董事长，2025 年 3 月出任天合富家联席总裁。</p>
+
+  <h3 class="reveal">婚礼硬件细节</h3>
+  <div class="tablewrap reveal">
+    <table>
+      <thead><tr><th>项目</th><th>信息</th></tr></thead>
+      <tbody>
+        <tr><td>时间</td><td>2025 年 12 月 15 日（周日），酒店确认周日、周一连续两天包场</td></tr>
+        <tr><td>地点</td><td>江苏常州 · 中吴宾馆「中吴宴会厅」。园林式酒店，占地 22 万㎡，宴会会议总面积 8000㎡</td></tr>
+        <tr><td>场地规格</td><td>面积 1825㎡，层高 9 米，可容纳 10–100 桌；酒店提供裸厅，由新人自行找婚庆布置</td></tr>
+        <tr><td>预算量级</td><td>按基础餐标（不含烟酒）包下整个宴会厅约需 60 万元以上；好日子需提前一年预订</td></tr>
+        <tr><td>风格</td><td>中式：凤冠霞帔、花海布置；网传凤冠制作耗时约 3 个月（未获官方证实）</td></tr>
+        <tr><td>饮品</td><td>霸王茶姬展台，宾客人手一杯，主力产品「伯牙绝弦」；红金配色杯套印「佳偶天成」及新人名字</td></tr>
+        <tr><td>仪式改动</td><td>取消传统敬酒环节，以奶茶代酒</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout amber reveal">
+    <p><b>一个容易被忽略的传播起点：</b>婚礼前一周，张俊杰在朋友圈官宣婚讯，同时正式澄清了此前关于他个人婚姻状况的不实传闻，并表示已对造谣者追责。也就是说，这场婚礼的对外沟通从「辟谣」开始，而不是从「秀恩爱」开始——这让叙事天然带了一层「堂堂正正」的情绪底色。</p>
+  </div>
+
+  <h3 class="reveal">市场反应</h3>
+  <p class="reveal">婚讯 11 月 20 日左右在社交平台流传后，霸王茶姬美股当日盘中下跌、收盘跌超 8%；天合光能次日 A 股低开 1.8%。双方公司均强调两家上市公司之间目前没有关联交易或商业合作。两个月后的 2025 年 12 月婚礼当天，#霸王茶姬创始人婚礼# 相关话题登上热搜，「人手一杯奶茶」「清醒版喜宴」成为主要讨论角度。</p>
+</section>
+
+<!-- ============ 3 ============ -->
+<section id="s3">
+  <h2><span class="num">03</span>四层品牌动作</h2>
+  <p class="sub">从「一个场景」到「一条产品线」的递进，是这场案例真正的结构。</p>
+
+  <h3 class="reveal">第一层 · 婚礼现场：把产品做成道具</h3>
+  <ul class="clean reveal">
+    <li><b>以奶茶代酒，取消敬酒。</b>不是「婚礼上也有奶茶」，而是把传统宴席的核心仪式环节（敬酒）整体替换掉。这一步制造的是「冲突感」——传统与现代、酒桌文化与轻量化社交的冲突，才有讨论度。</li>
+    <li><b>定制杯套。</b>红金配色 +「佳偶天成」+ 新人名字，让杯子从饮品容器变成婚礼道具。宾客举杯合影的画面，等于给品牌拍了一整晚的产品图。</li>
+    <li><b>展台化陈列。</b>现场设独立饮品展台，堆叠陈列形成视觉墙。这是「出片」逻辑，不是「解渴」逻辑。</li>
+    <li><b>符号适配。</b>中式婚礼 × 东方茶定位天然自洽；主力产品名「伯牙绝弦」讲的是知音，放在婚礼语境里也说得通。这与喜茶靠「囍」字命名、茶百道靠「执子之手，与子偕老」书法杯是同一套逻辑：<em>产品符号必须自己会讲话</em>。</li>
+  </ul>
+
+  <h3 class="reveal">第二层 · 员工层：7000 家店的喜糖</h3>
+  <ul class="clean reveal">
+    <li>向全国 7000 余家门店员工寄送喜糖礼盒，内含棉花糖、夹心饼干、巧克力等。</li>
+    <li>员工在社交平台自发晒礼盒，称他为「001 号伙伴」。这个称呼本身就是品牌内部文化的证据——创始人被编号为第一个「伙伴」，比任何雇主品牌广告都更有说服力。</li>
+    <li>成本极低（一份礼盒的物料成本），产出却是数千条真实 UGC 和一波「这公司还行」的路人好感。</li>
+  </ul>
+
+  <h3 class="reveal">第三层 · 消费者层：到店送喜糖</h3>
+  <ul class="clean reveal">
+    <li>部分门店同步推出「到店送喜糖」，把一场私人婚礼的喜气转成可领取的公共福利。</li>
+    <li>这一层是关键的「破圈阀门」：前两层只覆盖「在场的人」和「自己人」，这一层让完全无关的消费者有了参与理由，也让话题从财经版溢出到生活版。</li>
+  </ul>
+
+  <h3 class="reveal">第四层 · 业务层：把事件沉淀成产品线</h3>
+  <p class="reveal">这是最容易被忽略、但商业价值最高的一层。婚礼不是终点，而是「婚庆团餐」这条业务线的发布节点。</p>
+  <div class="tablewrap reveal">
+    <table>
+      <thead><tr><th>阶段</th><th>动作</th><th>形态</th></tr></thead>
+      <tbody>
+        <tr><td>2024 年</td><td>群体场景跑量：1–9 月为婚庆、交友聚会、职场庆祝等场景供货约 150 万杯；国庆团体订单同比 +近 300%；收到多家婚庆公司长期合作邀约</td><td><span class="tag gray">能力验证</span></td></tr>
+        <tr><td>2025 年</td><td>区域门店陆续推出限定「喜宴套餐」，附赠婚书、结婚证展示框、手抛喜字、超大喜字摆件等周边；部分省份做「婚礼计划招募」征集需求</td><td><span class="tag">区域试点</span></td></tr>
+        <tr><td>2025-12-15</td><td>创始人婚礼全网刷屏，婚庆场景获得国民级认知</td><td><span class="tag">事件引爆</span></td></tr>
+        <tr><td>2026 年 8 月</td><td>四川、重庆、甘肃、北京、山东、湖南、云南等区域官方账号统一官宣婚礼团餐；小程序上线独立「办喜事」入口；北京首推 21 杯「爱心婚礼摆台套餐」（赠心形摆台 +「囍」字装饰），支付前可选场景杯贴；客服明确非七夕限定，属集团长线动作</td><td><span class="tag jade">集团产品化</span></td></tr>
+        <tr><td>并行动作</td><td>赞助素人婚礼：博主晒出被霸王茶姬赞助婚礼，订奶茶直接送海马体情侣写真</td><td><span class="tag gray">KOC 扩散</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout reveal">
+    <p><b>注意这条曲线：</b>能力验证（2024）→ 区域试点（2025）→ 事件引爆（2025.12）→ 集团产品化（2026.08）。事件发生在第三步，但价值兑现在第四步。多数品牌做事件营销只做到第三步就停了，热度三个月后归零。</p>
+  </div>
+
+  <div class="callout amber reveal">
+    <p><b>执行落差的真实记录：</b>2026 年 8 月媒体实测发现，「办喜事」入口虽已上线，但不同区域、不同门店的上线情况并不一致，多数门店仍只有「夏日聚会套餐」6 杯随心配，部分区域甚至没有套餐栏目；北京地区 8 月 19 日才上线，且首批仅蓝色港湾一家门店参与。几十上百杯的真实婚礼订单，打电话预订仍比小程序更实际。这条细节很值得记：<em>官宣是集团动作，履约是门店动作，两者之间永远有缝</em>。</p>
+  </div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section id="s4">
+  <h2><span class="num">04</span>完整时间线</h2>
+  <p class="sub">把品牌动作和人生节点叠在一张表上看，节奏关系就出来了。</p>
+
+  <ol class="timeline reveal">
+    <li>
+      <div class="t">2022</div>
+      <div class="h">喜茶率先切入婚庆场景</div>
+      <div class="d">推出「新婚计划」/阿喜团餐，新人凭结婚证享团餐优惠；与多地民政局合作「喜上加喜」，约 7 万人在领证当天领到免费奶茶。行业正式有了「婚宴茶饮」这个品类动作。</div>
+    </li>
+    <li>
+      <div class="t">2024 年 1–9 月</div>
+      <div class="h">霸王茶姬跑通群体场景供给</div>
+      <div class="d">累计为婚庆、交友聚会、职场庆祝等场景供货约 150 万杯；国庆团体订单同比增长近 300%。</div>
+    </li>
+    <li>
+      <div class="t">2024-10</div>
+      <div class="h">行业媒体集体定调</div>
+      <div class="d">「以茶代酒」「婚宴奶茶」成为营销行业热词，小红书「奶茶婚礼敬酒环节」相关笔记超 2 万篇。</div>
+    </li>
+    <li>
+      <div class="t">2025 年</div>
+      <div class="h">区域限定喜宴套餐陆续上线</div>
+      <div class="d">婚书、结婚证展示框、手抛喜字、大囍摆件等周边成型；部分省份做「婚礼计划招募」。</div>
+    </li>
+    <li>
+      <div class="t">2025-04-17</div>
+      <div class="h">霸王茶姬纳斯达克上市</div>
+      <div class="d">首个登陆美股的中国新茶饮品牌，首日市值破 540 亿元。创始人的个人叙事从此具备了资本市场关注度。</div>
+    </li>
+    <li>
+      <div class="t">2025-11-20 前后</div>
+      <div class="h">婚讯流出，股价先跌</div>
+      <div class="d">婚礼请柬在社交平台流传；霸王茶姬美股收盘跌超 8%，天合光能 A 股低开 1.8%。双方否认存在关联交易或商业合作。</div>
+    </li>
+    <li>
+      <div class="t">2025-11</div>
+      <div class="h">朋友圈官宣 + 辟谣</div>
+      <div class="d">张俊杰官宣婚讯，同时澄清此前「从未有过婚姻」，并对造谣者追责。</div>
+    </li>
+    <li class="key">
+      <div class="t">2025-12-15</div>
+      <div class="h">婚礼举行 · 全网刷屏</div>
+      <div class="d">常州中吴宾馆，中式婚礼，奶茶代酒，宾客人手一杯；7000+ 门店员工收到喜糖礼盒；部分门店「到店送喜糖」。</div>
+    </li>
+    <li>
+      <div class="t">2025 年 Q3</div>
+      <div class="h">业务基本盘承压</div>
+      <div class="d">门店 7338 家，GMV 79.30 亿元，净收入 32.08 亿元（同比 −9.4%），经调整净利润 5.03 亿元；海外 GMV 超 3 亿元（同比 +75.3%），海外门店 262 家。事件热度恰好落在国内增长放缓的时点。</div>
+    </li>
+    <li>
+      <div class="t">2026-08-18</div>
+      <div class="h">江苏限定新品</div>
+      <div class="d">携手苏州吴中上线「江苏限定」，茶底用洞庭山碧螺春，延续「深入茶园、区域限定」的本地化打法。</div>
+    </li>
+    <li>
+      <div class="t">2026-08-20 前后</div>
+      <div class="h">婚庆团餐升级为集团动作</div>
+      <div class="d">多区域官方账号统一官宣；小程序「办喜事」入口上线；北京首推 21 杯爱心婚礼摆台套餐。媒体出现「年轻人婚礼拉赞助，快把霸王茶姬干成婚庆公司了」的讨论。</div>
+    </li>
+  </ol>
+</section>
+
+<!-- ============ 5 ============ -->
+<section id="s5">
+  <h2><span class="num">05</span>为什么有效</h2>
+  <p class="sub">拆成四个机制看，每一个都不依赖「老板结婚」这个偶然条件。</p>
+
+  <h3 class="reveal">机制一：把「制度冲突」变成内容</h3>
+  <p class="reveal">婚宴敬酒是中国酒桌文化最硬的堡垒。用奶茶替换它，本质上是拿一件小事去挑战一个共识——这种「制度冲突」自带讨论价值。网友给出的评价是「清醒版喜宴」「清醒又喜庆」，讨论焦点其实不在奶茶好不好喝，而在「婚礼为什么非得喝酒」。</p>
+  <p class="reveal">对照来看，喜茶的打法是「顺势」——品牌名里就有「喜」，slogan 是「囍上加喜」，产品有「喜柿多多」「有喜柿椰」，进婚礼场景毫无阻力但也无冲突，所以传播势能天然低一档。<em>顺滑和出圈，往往不能兼得。</em></p>
+
+  <h3 class="reveal">机制二：场景的真实性无法伪造</h3>
+  <p class="reveal">这是所有品牌赞助都换不来的东西。品牌可以花钱买婚礼赞助位，但买不到「创始人自己结婚，用自己产品待客」这件事的可信度。它同时证明了产品自信（敢在人生最重要场合用自家货）、组织自信（7000 家店发喜糖）和叙事一致性（东方茶 × 中式婚礼）。</p>
+  <blockquote class="reveal">
+    <p>「品牌即创始人，创始人即品牌。」——媒体对这场婚礼的概括，也是理解霸王茶姬前八年增长的核心线索。</p>
+    <cite>行业评论（品学网等）</cite>
+  </blockquote>
+
+  <h3 class="reveal">机制三：零投放撬动三级分发</h3>
+  <ul class="clean reveal">
+    <li><b>现场宾客</b>：非富即贵的嘉宾阵容（含商业伙伴与投资机构代表）本身带社交资产，他们的朋友圈是最高质量的传播渠道。</li>
+    <li><b>7000 家门店员工</b>：数千条晒单内容，覆盖下沉到县域的私域流量。</li>
+    <li><b>到店消费者</b>：把「领喜糖」变成到店理由，顺手产生消费。</li>
+  </ul>
+  <p class="reveal">相较一次全国性广告投放的预算，这套动作的总成本大约只有「喜糖礼盒物料 + 现场布置」，媒体报道普遍用「零成本撬动亿级曝光」来描述。</p>
+
+  <h3 class="reveal">机制四：卡位「人生重要时刻」的长期心智</h3>
+  <p class="reveal">这套打法的祖师爷是王老吉——把产品绑到婚宴、升学、生日等仪式场景上，让「买饮料」这件不重要的事变成一件重要的事。一位行业高管的原话是：人生的重要时刻需要仪式感，需要被祝福、被铭记、被回忆。</p>
+  <p class="reveal">对霸王茶姬而言，婚礼场景的账算得过来：一场婚礼订单量通常 100–500 杯，而 2023 年月均单店销量 2.4 万杯（约 800 杯/天），<em>一场婚礼就能覆盖单店半天到一天的销量</em>；且团餐只在小程序下单，省掉外卖平台抽成。既是增量，也是毛利更高的渠道。</p>
+
+  <div class="stats reveal">
+    <div class="stat"><div class="v"><span class="count" data-to="100">100</span>–<span class="count" data-to="500">500</span><small>杯</small></div><div class="k">单场婚礼的典型订单量</div></div>
+    <div class="stat"><div class="v">≈<span class="count" data-to="800">800</span><small>杯/天</small></div><div class="k">单店日均销量（2023 口径）</div></div>
+    <div class="stat"><div class="v"><span class="count" data-to="1047.6" data-decimals="1">1047.6</span><small>万</small></div><div class="k">小红书「婚礼赞助」话题浏览量</div></div>
+    <div class="stat"><div class="v"><span class="count" data-to="30.4" data-decimals="1">30.4</span><small>万</small></div><div class="k">同话题讨论量</div></div>
+  </div>
+</section>
+
+<!-- ============ 6 ============ -->
+<section id="s6">
+  <h2><span class="num">06</span>横向对比：谁在做婚礼，谁只是被提到</h2>
+  <p class="sub">要紧的是分清三种关系：老板私事驱动、品牌主动布局、用户自发选择。</p>
+
+  <div class="tablewrap reveal">
+    <table>
+      <thead>
+        <tr><th>品牌</th><th>与婚礼的关系</th><th>具体动作</th><th>强度</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>霸王茶姬</td>
+          <td><span class="tag">老板私事驱动 + 业务承接</span></td>
+          <td>创始人婚礼用自家产品待客；7000 店发喜糖；到店送喜糖；区域喜宴套餐 → 集团「办喜事」团餐入口 + 摆台 + 杯贴；赞助素人婚礼（订奶茶送海马体写真）</td>
+          <td>★★★★★</td>
+        </tr>
+        <tr>
+          <td>喜茶</td>
+          <td><span class="tag jade">品牌主动布局</span></td>
+          <td>2022 年起「新婚计划」/阿喜团餐（凭结婚证享阶梯折扣）；与多地民政局「喜上加喜」快闪，约 7 万人领到免费奶茶；定制杯套/包装袋/冰箱贴；「一周茶」礼盒做伴手礼；产品命名「喜柿多多」等</td>
+          <td>★★★★☆</td>
+        </tr>
+        <tr>
+          <td>茶百道</td>
+          <td><span class="tag gray">产品符号适配</span></td>
+          <td>「执子之手，与子偕老」书法杯等喜庆包装被新人自发用于婚宴</td>
+          <td>★★★☆☆</td>
+        </tr>
+        <tr>
+          <td>茶颜悦色</td>
+          <td><span class="tag gray">周边适配</span></td>
+          <td>「大四喜」手信茶礼成为伴手礼热门选择</td>
+          <td>★★★☆☆</td>
+        </tr>
+        <tr>
+          <td>奈雪的茶</td>
+          <td><span class="tag gray">夫妻创业叙事</span></td>
+          <td>彭心与赵林夫妻共同创业，品牌故事本身就是「一个爱情故事」（始于相亲）；<b>但没有公开的婚礼事件营销</b></td>
+          <td>★★☆☆☆</td>
+        </tr>
+        <tr>
+          <td>蜜雪冰城 / 古茗</td>
+          <td><span class="tag gray">未被激活</span></td>
+          <td>无专门婚庆产品线；蜜雪在网友讨论中被喊话「让雪王接婚庆表演」，属民间玩梗</td>
+          <td>★☆☆☆☆</td>
+        </tr>
+        <tr>
+          <td>好望水（非茶饮）</td>
+          <td><span class="tag jade">主动布局</span></td>
+          <td>婚礼款饮品 + 红纸喜字，产品命名「望杏福」（幸福）「望梅好」（美好），谐音梗押注婚宴摆台位</td>
+          <td>★★★☆☆</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="bars reveal">
+    <h4>婚庆团餐的阶梯折扣（媒体口径不一，均为公开报道）</h4>
+    <div class="bar">
+      <div class="lbl"><span>喜茶 · 99 / 199 / 299 杯以上</span><span>9.5 / 9.3 / 9.0 折</span></div>
+      <div class="track"><div class="fill" style="--w:95%"></div></div>
+    </div>
+    <div class="bar">
+      <div class="lbl"><span>喜茶 · 20 / 80 / 150 杯以上（另一口径）</span><span>9.5 / 9.2 / 9.0 折</span></div>
+      <div class="track"><div class="fill" style="--w:92%"></div></div>
+    </div>
+    <div class="bar">
+      <div class="lbl"><span>霸王茶姬 · 2026.08 北京首推「爱心婚礼摆台套餐」</span><span>21 杯起 · 赠摆台</span></div>
+      <div class="track"><div class="fill j" style="--w:60%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7 ============ -->
+<section id="s7">
+  <h2><span class="num">07</span>容易被误传的几点</h2>
+  <p class="sub">做竞品研究时，这三条最容易踩坑。</p>
+
+  <h3 class="reveal">「奈雪创始人结婚做活动」——不成立</h3>
+  <p class="reveal">奈雪的茶确实是夫妻创业（彭心与赵林，相识于相亲），赵林也公开讲过「奈雪其实是一个爱情故事」，彭心还专门谈过「夫妻创业要明确分工」。但这是<em>长期品牌叙事</em>，不是一场婚礼事件，也没有对应的营销活动。把两者混谈，会得出错误的「行业普遍做法」结论。</p>
+
+  <h3 class="reveal">「喜茶创始人结婚了」——无公开信息</h3>
+  <p class="reveal">喜茶在婚庆场景的布局是所有茶饮品牌里最早、最系统的（2022 年就开始了），但创始人聂云宸没有公开婚讯。喜茶的婚庆动作属于纯粹的业务布局，与创始人私事无关。</p>
+
+  <h3 class="reveal">「奶茶代酒是霸王茶姬首创」——不是</h3>
+  <p class="reveal">「婚礼奶茶」的民间实践远早于品牌介入：2023 年起抖音就有「超大杯奶茶敬亲友」的视频刷屏（单条点赞 43 万+、转发 27 万），小红书上「奶茶婚礼敬酒环节」笔记超 2 万篇。品牌做的是<b>承接和标准化</b>，不是发明需求。这一点对复制很关键——<em>需求的火苗往往已经在用户侧燃着，品牌要做的是递柴，不是点火</em>。</p>
+</section>
+
+<!-- ============ 8 ============ -->
+<section id="s8">
+  <h2><span class="num">08</span>底层数据：为什么品牌此刻抢婚礼</h2>
+  <p class="sub">一边是茶饮内卷，一边是婚礼场景的「预算迁移」。</p>
+
+  <h3 class="reveal">茶饮侧：增长见顶，团餐是少数还在涨的口子</h3>
+  <ul class="clean reveal">
+    <li>霸王茶姬 2025 年 Q3：净收入 32.08 亿元，<b>同比 −9.4%</b>；经调整净利润 5.03 亿元。国内基本盘明显承压，海外（GMV +75.3%）成为增长引擎。</li>
+    <li>喜茶 2025 年 2 月宣布暂停事业合伙申请，全年仅新开 65 家店，而 2023 年新开 2395 家。规模扩张时代结束。</li>
+    <li>行业集体转向：健康化（奈雪「不加糖天然营养+」、喜茶「零农残」溯源）、卖早餐卖咖啡（蜜雪「早餐奶+面包」、古茗 7:30 早咖+烘焙）、跨界卖酒（蜜雪收购精酿）。</li>
+  </ul>
+  <p class="reveal">在这个背景下，婚礼团餐的价值不只是卖货：<b>客单价高（单场 100–500 杯）、渠道成本低（小程序直订、无平台抽成）、获客精准（一次性触达几十到上百个真实消费者）、且不占用日常门店流量峰值</b>。</p>
+
+  <h3 class="reveal">婚礼侧：登记数回升，预算结构在迁移</h3>
+  <ul class="clean reveal">
+    <li>2025 年前三季度全国结婚登记 <b>515.2 万对</b>，同比增加 40.5 万对；2025 年 5 月 10 日新《婚姻登记条例》施行，全国通办，半年内办理「全国通办」超 26 万对。多地开始发结婚消费券/红包（浙江、湖南、山西吕梁 1500 元等）。</li>
+    <li>预算结构变了：婚礼酒水可以砍，但「现场好不好看、能不能发朋友圈」成了决策重点。Soul App 报告显示 33.35% 的受访者理想婚礼预算在 5–10 万元。</li>
+    <li>20–30 元一杯的奶茶，正在替代动辄上千元一瓶的白酒，成为 Z 世代的婚宴社交货币。</li>
+  </ul>
+
+  <div class="callout jade reveal">
+    <p><b>结构性判断：</b>这不是「茶饮蹭婚礼热度」，而是<em>婚宴酒水的预算池正在向低度、轻量、出片的方向溢出</em>。谁能提供「标准化 + 可定制 + 能配送 + 好看」的解决方案，谁就吃到这笔迁移的预算。茶饮恰好四项全中。</p>
+  </div>
+</section>
+
+<!-- ============ 9 ============ -->
+<section id="s9">
+  <h2><span class="num">09</span>可复用方法论</h2>
+  <p class="sub">把这套打法抽象成六步，换到任何「创始人/高管私事」的场景都能用。</p>
+
+  <ol class="steps reveal">
+    <li><b>先建承接能力，再做事件。</b>婚礼前 12–18 个月就跑通团餐/预售/配送/周边，事件当天才有地方装流量。没有承接能力的热搜只是股价噪音。</li>
+    <li><b>找一个「制度冲突」当钩子。</b>不是「我们也出现在婚礼上」，而是「我们把敬酒这件事换掉了」。冲突越具体，讨论越自动。</li>
+    <li><b>把产品做成道具，而不是赠品。</b>定制杯套、摆台、喜字、婚书——所有物料都要为「拍照」服务。出片率就是传播率。</li>
+    <li><b>把员工变成第一层媒体。</b>成本最低、可信度最高、覆盖最下沉。关键是给一个有人情味的由头（喜糖），而不是给一个任务（转发）。</li>
+    <li><b>给无关的人一个参与理由。</b>「到店领喜糖」这类动作，是把私人事件公共化的阀门。没有这一层，传播会停在财经媒体圈。</li>
+    <li><b>事件后 8 个月内必须产品化。</b>霸王茶姬用了约 8 个月把婚礼热度变成集团级团餐入口和独立菜单入口。超过一年，热度归零，只能重来。</li>
+  </ol>
+
+  <h3 class="reveal">反向清单：什么情况下别做</h3>
+  <ul class="clean reveal">
+    <li><b>业务基本盘在崩的时候。</b>创始人婚礼的曝光会被解读成「不务正业」而非「有温度」，尤其当同期财报是负增长时。</li>
+    <li><b>门店履约能力不足的时候。</b>霸王茶姬上线「办喜事」入口后仍出现区域不同步、门店无套餐、只能电话预订的问题——舆论会把「营销做得好」反转成「连单都接不住」。</li>
+    <li><b>创始人 IP 已经过度绑定品牌的时候。</b>这会加剧「品牌空心化」的批评：热闹都是创始人的，产品记忆点没有沉淀。</li>
+    <li><b>涉及他人隐私或未经同意的传播。</b>婚礼涉及另一半及其家族（尤其是上市公司），任何商业化的表达都要先过合规与对方意愿这一关。</li>
+  </ul>
+</section>
+
+<!-- ============ 10 ============ -->
+<section id="s10">
+  <h2><span class="num">10</span>风险与争议</h2>
+
+  <h3 class="reveal">1. 「品牌即创始人」是双刃剑</h3>
+  <p class="reveal">早期，创始人的草根逆袭故事给品牌带来了穿透嘈杂的情感连接和最省钱的辨识度；但当门店超过 7000 家、进入资本市场，过深的个人绑定会暴露另一面：创始人的私事会直接变成股价波动（婚讯当天美股跌超 8%），也会让「营销动作内卷」与「品牌核心空心化」的批评更容易成立。</p>
+
+  <h3 class="reveal">2. 商业联姻的解读风险</h3>
+  <p class="reveal">两家上市公司、合计超 600 亿市值，媒体与投资者的第一反应必然是「是否有商业合作」。双方不得不明确表态「目前没有任何关联交易或商业合作」——这本身说明，当私事具备商业解读空间时，品牌需要额外花成本去「去商业化」。</p>
+
+  <h3 class="reveal">3. 婚礼赞助赛道的信任成本</h3>
+  <p class="reveal">2026 年「普通人婚礼拉赞助」成为现象（小红书话题浏览 1047.6 万），被部分网友质疑「像讨口子」；品牌侧则面临执行不同步、被冒充诈骗等风险。这条赛道越热，越需要标准化的履约和风控。</p>
+
+  <h3 class="reveal">4. 事件营销的边际递减</h3>
+  <p class="reveal">霸王茶姬本身是联名营销的资深玩家（影视 IP、博物馆跨界），但当联名成为行业标配，「为联名而联名」的流量焦虑随之而来。婚礼这个场景的红利同样会衰减——一旦所有茶饮品牌都在婚礼上摆台，它就不再是「冲突」，而只是「标配」。</p>
+</section>
+
+<!-- ============ 11 ============ -->
+<section id="s11">
+  <h2><span class="num">11</span>信源清单</h2>
+  <p class="sub">本报告所有事实性表述均来自下列公开报道，未做推测性补全；标注「网传」「未证实」的内容已在正文中说明。</p>
+  <ul class="src reveal">
+    <li>每日经济新闻《「男女霸总相识于青年企业家学习活动」，600亿跨界联姻不止甜…》（2025-11-21）<br><a href="https://www.nbd.com.cn/articles/2025-11-21/4152294.html">nbd.com.cn</a></li>
+    <li>每日经济新闻《霸王茶姬创始人迎娶「最美光伏二代」，公司股价大涨！…》（2025-11-23）<br><a href="https://www.nbd.com.cn/articles/2025-11-23/4153579.html">nbd.com.cn</a></li>
+    <li>极目新闻/潇湘晨报《霸王茶姬创始人大婚！酒店：包场2天，宴会厅可容纳百桌！该厅基础费用超60万》（2025-12-16）<br><a href="https://www.ctdsb.net/c1716_202512/2618403.html">ctdsb.net</a></li>
+    <li>新唐人《中國「霸王茶姬」創始人婚禮 人手一杯奶茶》（2025-12-16）<br><a href="https://www.ntdtv.com/b5/2025/12/16/a104047278.html">ntdtv.com</a></li>
+    <li>什么值得买《霸王茶姬创始人婚礼人手一杯奶茶，上演教科书级的人情味营销》（2025-12-15）<br><a href="https://post.smzdm.com/p/apwn8k39/">post.smzdm.com</a></li>
+    <li>纵览网《霸王茶姬创始人婚礼人手一杯奶茶》<br><a href="https://www.zonglan.com/resou/1003.html">zonglan.com</a></li>
+    <li>澎湃新闻《霸王茶姬创始人发文辟谣：此前从未有过婚姻，已对造谣者追责》<br><a href="https://www.thepaper.cn/newsDetail_forward_32018779">thepaper.cn</a></li>
+    <li>新京报《霸王茶姬三季度净收入32.08亿元，门店数达7338家》（2025-11-30）<br><a href="https://www.bjnews.com.cn/detail/1764478414169584.html">bjnews.com.cn</a></li>
+    <li>界面新闻《95后、00后整顿婚礼，喜茶、霸王茶姬成最大赢家？》（2024-08-29）<br><a href="https://www.jiemian.com/article/11640644.html">jiemian.com</a></li>
+    <li>数英《这些品牌闯进婚礼现场，把婚庆玩出了花》（2024-10-29）<br><a href="https://www.digitaling.com/articles/1278150.html">digitaling.com</a></li>
+    <li>运营派《登上婚宴的喜茶、霸王茶姬们，用场景突破内卷》（2024-10-23）<br><a href="https://www.yunyingpai.com/market/1051380.html">yunyingpai.com</a></li>
+    <li>Foodaily 每日食品《为省钱打工人给自己婚礼拉20条赞助？快把霸王茶姬麻辣王子干成婚庆公司了》（2026-08-22）<br><a href="https://www.foodaily.com/articles/42144">foodaily.com</a></li>
+    <li>经济观察网《霸王茶姬推出江苏限定新品 婚庆场景营销引发社交讨论》（2026-08-22）<br><a href="http://www.eeo.com.cn/2026/0822/1007988.shtml">eeo.com.cn</a></li>
+    <li>希鸥网/创新日报《敬酒改敬奶茶，霸王茶姬要把婚礼办成招商会》<br><a href="https://news.asia-brand.com/article.php?id=5638">news.asia-brand.com</a></li>
+    <li>品学网《从一场婚礼，看新茶饮的「豪门」分野与隐形战争》<br><a href="https://www.bs178.com/s-1-68bc1eacd195c4a7/">bs178.com</a></li>
+    <li>第一财经《2025年前三季度结婚登记515.2万对》（2025-11-05）<br><a href="https://www.yicai.com/news/102896446.html">yicai.com</a></li>
+    <li>央视网《观察·支持婚育政策效果显现「婚旅」服务提质升级》（2025-11-24）<br><a href="https://news.cctv.cn/2025/11/24/ARTIz3eVzsXDKq8np2hBVWIc251124.shtml">news.cctv.cn</a></li>
+    <li>新华网《财经观察丨新中式茶饮进入婚庆市场》</li>
+    <li>赢商网《盘点：2025新茶饮年度大戏，暂停加盟，跨界卖酒，创始人结婚上热搜…》（2025-12-24）<br><a href="https://m.winshang.com/news737899.html">winshang.com</a></li>
+  </ul>
+
+  <footer>
+    <p>本报告由公开报道整理，用于品牌营销研究与内部讨论。涉及财务与门店数据均以媒体披露为准，未做独立核实；「网传」类信息已在正文标注。人物关系、仪式细节属私人事务，仅作商业案例讨论，不作价值评判。</p>
+  </footer>
+</section>
+
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- scroll progress ---- */
+  var bar = document.getElementById('bar'), ticking = false;
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (h > 0 ? Math.min(100, (window.scrollY / h) * 100) : 0) + '%';
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  onScroll();
+
+  /* ---- counters: 与滚动解耦，页面加载后按顺序播放 ---- */
+  function easeOutExpo(t){ return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); }
+  var counters = [].slice.call(document.querySelectorAll('.count'));
+
+  function finalText(el){
+    var to = parseFloat(el.dataset.to) || 0;
+    var dec = parseInt(el.dataset.decimals || '0', 10);
+    return (el.dataset.prefix || '') + to.toFixed(dec);
+  }
+  function runCount(el){
+    if(el.dataset.done) return;
+    el.dataset.done = '1';
+    var to = parseFloat(el.dataset.to) || 0;
+    var dec = parseInt(el.dataset.decimals || '0', 10);
+    var pre = el.dataset.prefix || '';
+    if(reduce){ el.textContent = pre + to.toFixed(dec); return; }
+    var dur = 1400, t0 = null;
+    function frame(ts){
+      if(t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / dur);
+      el.textContent = pre + (to * easeOutExpo(p)).toFixed(dec);
+      if(p < 1) requestAnimationFrame(frame);
+      else el.textContent = pre + to.toFixed(dec);
+    }
+    requestAnimationFrame(frame);
+  }
+  function startCounters(){
+    counters.forEach(function(el, i){
+      setTimeout(function(){ runCount(el); }, 180 + i * 90);
+    });
+  }
+
+  /* ---- 兜底：3 秒后强制全部可见 + 数字定稿 ---- */
+  function settle(){
+    document.documentElement.classList.add('settled');
+    counters.forEach(function(el){
+      if(el.dataset.done) return;
+      el.dataset.done = '1';
+      el.textContent = finalText(el);
+    });
+  }
+  window.addEventListener('beforeprint', settle);
+  setTimeout(settle, 3000);
+
+  if(document.readyState === 'complete') startCounters();
+  else window.addEventListener('load', startCounters);
+})();
+</script>
+</body>
+</html>
